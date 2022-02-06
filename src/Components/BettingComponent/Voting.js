@@ -22,7 +22,7 @@ const Voting = () => {
     localStorage.setItem("vote", ref.current.value);
     setShowToast(true);
     dispatchUserEvent("ADD SHOW GOAL COUNT");
-    setToastMessage(textConstants.TEAM_SELECTED);
+    //setToastMessage(textConstants.TEAM_SELECTED);
   };
 
   useEffect(() => {

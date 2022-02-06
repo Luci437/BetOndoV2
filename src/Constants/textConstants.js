@@ -15,5 +15,7 @@ export const textConstants = {
     ONLINE: 'Back Online, Continue',
     TEAM_SELECTED: 'Team Selected',
     LOGOUT: 'Thank You, See you again',
-    ERROR: 'Something went wrong, Please Try again'
+    ERROR: 'Something went wrong, Please Try again',
+    INCREMENT: "INCREMENT",
+    DECREMENT: "DECREMENT"
 }

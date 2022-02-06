@@ -16,8 +16,8 @@ const JoinButton = () => {
     const joinContest = () => {
         setJoinLoading(!joinLoading)
         setJoined(!joined);
-        setShowToast(true);
-        setToastMessage(textConstants.JOINED_CONTEST);
+        // setShowToast(true);
+        // setToastMessage(textConstants.JOINED_CONTEST);
     }
 
     return (

@@ -1,16 +1,16 @@
-import React, {
-  Fragment,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { siteConstant } from "../../Constants/commonConstants";
 import { CommonContext } from "../../Context/CommonContext";
 import { GiTurban } from "react-icons/gi";
 import { TiArrowLeftThick, TiArrowRightThick } from "react-icons/ti";
 import Football from "./Football";
+import { textConstants } from "../../Constants/textConstants";
+import messi from "../../Images/messi.webp";
+import { IoInformationCircle } from "react-icons/io5";
+import MatchWinPercent from "./MatchWinPercent";
+import { putZeroBeforeNumber } from "../../Utils/ZeroBeforeNumber";
+import flag from "../../Images/argentinaTeamLogo.webp";
 
 function GoalCount() {
   const { ref, inView } = useInView({ threshold: siteConstant.THRESHOLD });
@@ -18,6 +18,7 @@ function GoalCount() {
   const modalRef = useRef();
   const [selectedGoalCount, setSelectedGoalCount] = useState(0);
   const [goals, setGoals] = useState([]);
+  const tempArray = useRef([]);
 
   //*For closing them modal when we click outside
   useEffect(() => {
@@ -28,16 +29,6 @@ function GoalCount() {
     };
   }, []);
 
-  //*For Creating Array of footballs
-  useEffect(() => {
-    if (selectedGoalCount > 0) {
-      setGoals([]);
-      let tempArray = [];
-      for (let i = 0; i < selectedGoalCount; i++) tempArray.push(i);
-      setGoals(tempArray);
-    }
-  }, [selectedGoalCount]);
-
   //*For closing modal
   const handleModel = (e) => {
     if (modalRef?.current?.contains(e.target)) {
@@ -46,14 +37,47 @@ function GoalCount() {
     dispatchUserEvent("HIDE SHOW GOAL COUNT");
   };
 
+  //* For handling goal changes
+  const handleGoalChanges = (type) => {
+    if (type === textConstants.INCREMENT) {
+      if (selectedGoalCount <= siteConstant.MAX_GOAL_COUNT) {
+        setSelectedGoalCount((prev) => {
+          return prev + 1;
+        });
+      }
+    } else {
+      if (selectedGoalCount > 0) {
+        setSelectedGoalCount((prev) => {
+          return prev - 1;
+        });
+      }
+    }
+
+    //* For Updating Goal Array
+    if (selectedGoalCount < siteConstant.MAX_GOAL_COUNT) {
+      setGoals([]);
+      for (let i = 0; i <= 0; i++) tempArray.current.push(i);
+      setGoals(tempArray.current);
+    }
+  };
+
   return (
     <div className="goal-count-main-container">
-      <div className="goal-count-container" ref={modalRef}>
+      <div
+        className={
+          inView ? "animateFadeIn goal-count-container" : "goal-count-container"
+        }
+        ref={modalRef}
+      >
         <span className="subHeading" ref={ref}>
           <p>Choose Goals</p>
           <span className="totalParticipantsCount">
-            <p className="currentNumber">01</p>
-            <p className="totalNumber">31</p>
+            <p className="currentNumber">
+              {putZeroBeforeNumber(selectedGoalCount)}
+            </p>
+            <p className="totalNumber">
+              {putZeroBeforeNumber(siteConstant.MAX_GOAL_COUNT)}
+            </p>
           </span>
         </span>
         <div className="football-court">
@@ -65,12 +89,42 @@ function GoalCount() {
           <div className="football-court-grass-img"></div>
           <div className="football-court-players-container"></div>
 
+          <div className="football-court-dig-ground">
+            <img alt="flag"  src={flag}  className="football-court-team-flag" />
+            <img
+              className="football-court-selectedTeamImage"
+              src={messi}
+              alt="selectedTeamImage"
+            />
+            <p className="football-court-dig-selectedTeamName">ARGENTINA</p>
+            <MatchWinPercent />
+            <h3 className="football-court-dig-instruction-text">
+              <IoInformationCircle className="toastIcon" />
+              Now you need to select how many goal will they take in this match.
+            </h3>
+
+            <div className="football-court-dig-team-info-container">
+              <div className="football-court-dig-team-info-data">
+                <h4 className="football-court-dig-team-info-title">MATCHES</h4>
+                <h2 className="football-court-dig-team-info-title-data">241</h2>
+              </div>
+              <div className="football-court-dig-team-info-data">
+                <h4 className="football-court-dig-team-info-title">WON</h4>
+                <h2 className="football-court-dig-team-info-title-data">201</h2>
+              </div>
+              <div className="football-court-dig-team-info-data">
+                <h4 className="football-court-dig-team-info-title">LOSS</h4>
+                <h2 className="football-court-dig-team-info-title-data">31</h2>
+              </div>
+              <div className="football-court-dig-team-info-data">
+                <h4 className="football-court-dig-team-info-title">DRAW</h4>
+                <h2 className="football-court-dig-team-info-title-data">10</h2>
+              </div>
+            </div>
+          </div>
+
           {goals?.map((_, index) => {
-            if (index === 1) {
-              return false;
-            } else {
-              return <Football key={index} />;
-            }
+            return <Football key={index} ind={index} />;
           })}
 
           <div className={"football-court-goal-selecting-container"}>
@@ -78,24 +132,16 @@ function GoalCount() {
               <div className="football-court-goal-selecting-container-sub-2">
                 <button
                   className="football-court-goal-state-change-buttons"
-                  onClick={() =>
-                    setSelectedGoalCount((prev) => {
-                      return prev - 1;
-                    })
-                  }
+                  onClick={() => handleGoalChanges(textConstants.DECREMENT)}
                 >
                   <TiArrowLeftThick className="football-court-goal-button-icon" />
                 </button>
                 <h1 className="football-court-goal-text">
-                  {selectedGoalCount}
+                  {putZeroBeforeNumber(selectedGoalCount)}
                 </h1>
                 <button
                   className="football-court-goal-state-change-buttons"
-                  onClick={() =>
-                    setSelectedGoalCount((prev) => {
-                      return prev + 1;
-                    })
-                  }
+                  onClick={() => handleGoalChanges(textConstants.INCREMENT)}
                 >
                   <TiArrowRightThick className="football-court-goal-button-icon" />
                 </button>
