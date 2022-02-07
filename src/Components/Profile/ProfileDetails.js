@@ -85,6 +85,9 @@ const ProfileDetails = () => {
                 <p className="profileMenuIcons"><IoTrophyOutline /></p>
                 <p className="profileMenuIcons"><IoIosFootball /></p>
             </div>
+            <div className='profile-menu-tab-main-container'>
+
+            </div>
             <div className="bottomDesign">
                 <p>Betondo &copy; {currentYear}</p>
             </div>

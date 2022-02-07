@@ -40,7 +40,7 @@ function GoalCount() {
   //* For handling goal changes
   const handleGoalChanges = (type) => {
     if (type === textConstants.INCREMENT) {
-      if (selectedGoalCount <= siteConstant.MAX_GOAL_COUNT) {
+      if (selectedGoalCount <= siteConstant.MAX_GOAL_COUNT - 1) {
         setSelectedGoalCount((prev) => {
           return prev + 1;
         });
@@ -90,7 +90,7 @@ function GoalCount() {
           <div className="football-court-players-container"></div>
 
           <div className="football-court-dig-ground">
-            <img alt="flag"  src={flag}  className="football-court-team-flag" />
+            <img alt="flag" src={flag} className="football-court-team-flag" />
             <img
               className="football-court-selectedTeamImage"
               src={messi}
@@ -106,19 +106,27 @@ function GoalCount() {
             <div className="football-court-dig-team-info-container">
               <div className="football-court-dig-team-info-data">
                 <h4 className="football-court-dig-team-info-title">MATCHES</h4>
-                <h2 className="football-court-dig-team-info-title-data">241</h2>
+                <h2 className="football-court-dig-team-info-title-data">
+                  {putZeroBeforeNumber(9)}
+                </h2>
               </div>
               <div className="football-court-dig-team-info-data">
                 <h4 className="football-court-dig-team-info-title">WON</h4>
-                <h2 className="football-court-dig-team-info-title-data">201</h2>
+                <h2 className="football-court-dig-team-info-title-data">
+                  {putZeroBeforeNumber(211)}
+                </h2>
               </div>
               <div className="football-court-dig-team-info-data">
                 <h4 className="football-court-dig-team-info-title">LOSS</h4>
-                <h2 className="football-court-dig-team-info-title-data">31</h2>
+                <h2 className="football-court-dig-team-info-title-data">
+                  {putZeroBeforeNumber(4)}
+                </h2>
               </div>
               <div className="football-court-dig-team-info-data">
                 <h4 className="football-court-dig-team-info-title">DRAW</h4>
-                <h2 className="football-court-dig-team-info-title-data">10</h2>
+                <h2 className="football-court-dig-team-info-title-data">
+                  {putZeroBeforeNumber(10)}
+                </h2>
               </div>
             </div>
           </div>
