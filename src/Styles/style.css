@@ -4,6 +4,7 @@
   --iconColor: rgba(255, 255, 255, 0.3);
   --midWhite: rgba(255, 255, 255, 0.75);
   --offWhite: rgba(255, 255, 255, 0.5);
+  --darkWhite: rgba(255, 255, 255, 0.3);
   --borderColorLightWhite: rgb(44, 44, 44);
   --teamBoxHeight: 150px;
   --bettingBackground: #23272b;
@@ -1051,6 +1052,21 @@ body {
     opacity: 1;
   }
 }
+.animateFadeFromRight {
+  transform: translateX(80%);
+  opacity: 1;
+  animation: animateFadeFromRight 0.2s ease-in forwards;
+}
+@keyframes animateFadeFromRight {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(80%);
+    opacity: 0;
+  }
+}
 .profileBox {
   display: flex;
   flex-direction: column;
@@ -1140,6 +1156,34 @@ body {
   background: linear-gradient(rgb(216, 216, 216), #fff);
   color: rgb(59, 59, 59);
   box-shadow: 0 1em 1em rgb(0, 0, 0);
+}
+.profileMenuIconActive {
+  position: relative;
+  background: linear-gradient(rgb(216, 216, 216), #fff);
+  color: rgb(59, 59, 59);
+  box-shadow: 0 1em 1em rgb(0, 0, 0);
+  font-size: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.041);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+  overflow: hidden;
+  border-radius: 0.5em;
+  position: relative;
+  transition: 0.3s ease;
+}
+.profileMenuIconActive::after {
+  position: absolute;
+  content: "";
+  width: 1em;
+  height: 1em;
+  background: #fff;
+  filter: blur(10px);
+  top: -1em;
+  left: -1em;
+  opacity: 0.3;
 }
 .bottomDesign {
   position: absolute;
@@ -1843,7 +1887,6 @@ body {
   height: 90%;
   object-fit: contain;
   filter: grayscale(110%) opacity(0.03);
-  mix-blend-mode: luminosity;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -1853,6 +1896,229 @@ body {
   width: 100%;
   margin: 0 auto;
   padding: 0.5em;
-  background: var(--bettingBackground);
   border-radius: 0.5rem;
+}
+.empty-main-container {
+  position: relative;
+  padding: 0.5em;
+  width: inherit;
+  height: inherit;
+  display: grid;
+  place-items: center;
+}
+.empty-3d-container {
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  perspective: 1300px;
+  perspective-origin: 50% 50%;
+  animation: votingContainer 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.empty-field-container {
+  position: relative;
+  width: 60%;
+  height: 90%;
+  border: 2px solid var(--courtBorderColor);
+  border-radius: 0.2em;
+  opacity: 0.5;
+  background: repeating-linear-gradient(
+    0deg,
+    #356719,
+    #356719 20px,
+    #467a20 20px,
+    #467a20 44px
+  );
+  margin: 0 auto;
+  transform: rotateX(-70deg) rotateY(0deg) rotateZ(-48deg) scale(1);
+  animation: ThreeD_rotation 0.5s 0.2s cubic-bezier(0.17, 0.67, 0.38, 0.1)
+    forwards;
+  box-shadow: -2px 2px 0 rgb(145, 145, 145), -6px 6px 0 rgb(97, 97, 97),
+    -10px 10px 0 rgb(54, 54, 54);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  overflow: hidden;
+}
+.empty-field-middle-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--courtBorderColor);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.empty-field-middle-circle {
+  position: absolute;
+  border: 2px solid var(--courtBorderColor);
+  border-radius: 99vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4em;
+  height: 4em;
+}
+.empty-field-top-box {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 70%;
+  height: 6vh;
+  border: 2px solid var(--courtBorderColor);
+  border-top: none;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateX(-50%);
+}
+.empty-field-top-box::after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 2.5vh;
+  border: 2px solid var(--courtBorderColor);
+  border-top: none;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.empty-field-top-box::before {
+  position: absolute;
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--courtBorderColor);
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-radius: 99vh;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.empty-field-bottom-box {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 70%;
+  height: 6vh;
+  border: 2px solid var(--courtBorderColor);
+  border-bottom: none;
+}
+.empty-field-bottom-box::after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 2.5vh;
+  border: 2px solid var(--courtBorderColor);
+  border-bottom: none;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+.empty-field-bottom-box::before {
+  position: absolute;
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--courtBorderColor);
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-radius: 99vh;
+  left: 50%;
+  bottom: 100%;
+  transform: translate(-50%, 50%) rotate(-45deg);
+}
+.empty-field-text-span {
+  position: relative;
+  transform: translateY(-100%);
+  top: -50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.empty-field-text {
+  position: relative;
+  text-align: center;
+  color: var(--midWhite);
+  font-weight: bold;
+  font-family: "Exo";
+}
+.empty-field-text-hint {
+  position: relative;
+  text-align: center;
+  color: var(--offWhite);
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+.empty-field-football {
+  position: absolute;
+  width: 0.5em;
+  height: 0.5em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 99vh;
+  animation: passFootball 3s ease-out infinite;
+}
+@keyframes passFootball {
+  0% {
+    box-shadow: 0 0 0 0 #fff, 0 0 10px rgb(49, 49, 49), 0 0 0 0 #fff;
+  }
+  100% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.062), 0 0 10px rgb(0, 0, 0),
+      0 0 0 60px rgba(36, 36, 36, 0.164);
+  }
+}
+.site-settings-container {
+  position: relative;
+  width: 100%;
+  padding: 0.5em;
+}
+.site-heading-2 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--offWhite);
+}
+.site-heading-3 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: var(--darkWhite);
+  text-transform: uppercase;
+}
+.settings-profile-container {
+  position: relative;
+  width: 100%;
+  padding: 1em;
+  background: #1f2225;
+  color: #fff;
+  font-size: 0.8rem;
+  display: flex;
+  column-gap: 1em;
+  border-radius: 0.5em;
+  align-items: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.007);
+}
+.site-settings-profile-box {
+  position: relative;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+.football-court-players-empty-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(105, 138, 74);
+  background: rgb(105, 138, 74);
+  background: radial-gradient(
+    circle,
+    rgba(105, 138, 74, 0.5788690476190477) 0%,
+    rgba(125, 255, 0, 0) 51%,
+    rgba(27, 29, 25, 0.4763480392156863) 77%
+  );
+  border-radius: 0.5em;
+}
+.row-padding-800 {
+  position: relative;
+  padding: 0.5em;
+  width: 100%;
 }

@@ -6,22 +6,19 @@ import reportWebVitals from "./reportWebVitals";
 import { LastLocationProvider } from "react-router-last-location";
 import { HashRouter, Switch } from "react-router-dom";
 import { TimerProvider } from "./Context/TimerContext";
-import { AuthProvider } from "./Context/AuthContext";
 import { CommonProvider } from "./Context/CommonContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <Switch>
-        <LastLocationProvider>
-          <TimerProvider>
-            <AuthProvider>
-              <CommonProvider>
-                <App />
-              </CommonProvider>
-            </AuthProvider>
-          </TimerProvider>
-        </LastLocationProvider>
+        <TimerProvider>
+          <LastLocationProvider>
+            <CommonProvider>
+              <App />
+            </CommonProvider>
+          </LastLocationProvider>
+        </TimerProvider>
       </Switch>
     </HashRouter>
   </React.StrictMode>,

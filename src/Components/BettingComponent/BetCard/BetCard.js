@@ -7,11 +7,7 @@ import DateAndTimeTimer from './DateAndTimeTimer';
 import {TimerContext} from '../../../Context/TimerContext';
 
 function BetCard() {
-    const {value1} = useContext(TimerContext)
-    const [expired] = value1;
-
-    const {value2} = useContext(TimerContext)
-    const [todaysGame] = value2;
+    const {expired, todaysGame} = useContext(TimerContext)
 
     return (
         <div className="betCardContainer">

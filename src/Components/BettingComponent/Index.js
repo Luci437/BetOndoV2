@@ -12,24 +12,16 @@ import GoalCount2 from "./GoalCount2";
 import { CommonContext } from "../../Context/CommonContext";
 
 function Index() {
-  const { value1 } = useContext(TimerContext);
-  const [expired] = value1;
-
-  const { value2 } = useContext(TimerContext);
-  const [todaysGame, setTodaysGame] = value2;
-
-  const { value3 } = useContext(TimerContext);
-  const [gameEnded] = value3;
-
-  const { value4 } = useContext(TimerContext);
-  const [joined] = value4;
-
-  if (gameEnded) {
-    setTodaysGame(textConstants.GAME_ENDED);
-  }
+  const { expired, dispatchTimerEvent, gameEnded, joined } =
+    useContext(TimerContext);
 
   const { showGoalCount } = useContext(CommonContext);
 
+  if (gameEnded) {
+    dispatchTimerEvent("ADD JOINED", {
+      value: textConstants.GAME_ENDED,
+    });
+  }
   return (
     <Fragment>
       {!gameEnded && (

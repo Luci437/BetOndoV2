@@ -14,17 +14,13 @@ function DateAndTimeTimer() {
     const [min, setMin] = useState('00');
     const [sec, setSec] = useState('00');
     // variable to indicate that timer had gone off
-    const {value1} = useContext(TimerContext)
-    const [expired,setExpired] = value1;
-
-    const {value2} = useContext(TimerContext)
-    const [todaysGame, setTodaysGame] = value2;
+    const {dispatchTimerEvent} = useContext(TimerContext)
     // this variable will be used for time interval in setInterval inside timerFunction()
     const clockSpeed = 1000;
     // this variable is used to store setInterval
     let timeInterval = setInterval;
     // this variable store the deadLine or betting ending time
-    const deadLine = 1644251891000;
+    const deadLine = 1644819484000;
     // this variable store current days time and date
     let today = new Date().getTime();
     // this variable store time difference between deadLine and today
@@ -91,13 +87,19 @@ function DateAndTimeTimer() {
 
             switch(days) {
                 case 0:
-                    setTodaysGame(textConstants.TODAYS_MATCH)
+                    dispatchTimerEvent("ADD TODAY GAME", {
+                      value: textConstants.TODAYS_MATCH,
+                    });
                     break;
                 case 1:
-                    setTodaysGame(textConstants.TOMORROW)
+                     dispatchTimerEvent("ADD TODAY GAME", {
+                       value: textConstants.TOMORROW,
+                     });
                     break;
                 default:
-                    setTodaysGame(textConstants.GAME_ENDED)
+                     dispatchTimerEvent("ADD TODAY GAME", {
+                       value: textConstants.GAME_ENDED,
+                     });
                     break;
             }
 
@@ -131,7 +133,9 @@ function DateAndTimeTimer() {
     // text the shows "Betting ends in" changes to "Betting ended"
     // using the values of Expired.
     const timerIsOff = () => {
-        setExpired(true)
+        dispatchTimerEvent("ADD EXPIRE", {
+            value: true
+        })
     }
 
     return (

@@ -3,8 +3,6 @@ import { TeamFlag } from "../../Images/Assets";
 import { useInView } from "react-intersection-observer";
 import { siteConstant } from "../../Constants/commonConstants";
 import { useContext } from "react";
-import { TimerContext } from "../../Context/TimerContext";
-import { textConstants } from "../../Constants/textConstants";
 import { CommonContext } from "../../Context/CommonContext";
 
 const Voting = () => {
@@ -13,14 +11,10 @@ const Voting = () => {
   const voteBRef = useRef();
   const voteDrawRef = useRef();
 
-  const { toastView, toastInfo } = useContext(TimerContext);
   const { dispatchUserEvent } = useContext(CommonContext);
-  const [showToast, setShowToast] = toastView;
-  const [toastMessage, setToastMessage] = toastInfo;
 
   const casteVote = (ref) => {
     localStorage.setItem("vote", ref.current.value);
-    setShowToast(true);
     dispatchUserEvent("ADD SHOW GOAL COUNT");
     //setToastMessage(textConstants.TEAM_SELECTED);
   };

@@ -1,21 +1,18 @@
-import { render } from '@testing-library/react';
+
 import React, {useState, useContext} from 'react';
-import { textConstants } from '../../Constants/textConstants';
 import { TimerContext } from '../../Context/TimerContext';
 
 const JoinButton = () => {
 
     const [joinLoading, setJoinLoading] = useState(false);
-
-    const {value4, toastView, toastInfo} = useContext(TimerContext)
-    const [joined, setJoined] = value4;    
-    const [showToast, setShowToast] = toastView;
-    const [toastMessage, setToastMessage] = toastInfo;
+    const {joined, dispatchTimerEvent} = useContext(TimerContext)   
 
 
     const joinContest = () => {
         setJoinLoading(!joinLoading)
-        setJoined(!joined);
+        dispatchTimerEvent("ADD JOINED", {
+            value: !joined
+        })
         // setShowToast(true);
         // setToastMessage(textConstants.JOINED_CONTEST);
     }

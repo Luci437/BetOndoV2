@@ -8,7 +8,7 @@ function EachParticipant(props) {
                 <img loading="lazy" src={props.image} alt="participantDp" className="participantsImage animateBackgroundSkeleton" />
                 <span>
                     <p className="participantName">{props.name}</p>
-                    <p className="participantChosenCountry"><p className="participantResultPool participantWinPool">W.P</p> {props.team ? (<> <GoPrimitiveDot /> {props.team} </>) : "PENDING"}</p>
+                    <p className="participantChosenCountry"><span className="participantResultPool participantWinPool">W.P</span> {props.team ? (<> <GoPrimitiveDot /> {props.team} </>) : "PENDING"}</p>
                 </span>
             </div>
             <p className="participantPoint">100</p>
