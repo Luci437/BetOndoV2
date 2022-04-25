@@ -9,7 +9,7 @@ function Football(props) {
     "football-ani4",
   ]);
   let ballClearInterval;
-  const { ind } = props;
+  const { ind, dataSaved } = props;
 
   //*For getting a random Animation
   useEffect(() => {
@@ -38,7 +38,7 @@ function Football(props) {
       className={`football-court-football-container ${selectedAnimation}`}
       id={ind}
     >
-      <IoMdFootball className="football-court-football" />
+      <IoMdFootball className={dataSaved ? "blink1" : "football-court-football"} />
     </div>
   );
 }

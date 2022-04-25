@@ -17,7 +17,7 @@ const NavBar = () => {
     if (lastLocation != null) {
       history.push(lastLocation.pathname);
     } else {
-      history.push("/");
+      history.push("/home");
     }
   };
 

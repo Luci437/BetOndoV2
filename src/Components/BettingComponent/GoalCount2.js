@@ -19,6 +19,7 @@ function GoalCount() {
   const [selectedGoalCount, setSelectedGoalCount] = useState(0);
   const [goals, setGoals] = useState([]);
   const tempArray = useRef([]);
+  const [dataSaved, setDataSaved] = useState(false);
 
   //*For closing them modal when we click outside
   useEffect(() => {
@@ -132,7 +133,7 @@ function GoalCount() {
           </div>
 
           {goals?.map((_, index) => {
-            return <Football key={index} ind={index} />;
+            return <Football key={index} ind={index} dataSaved={dataSaved} />;
           })}
 
           <div className={"football-court-goal-selecting-container"}>
@@ -155,7 +156,15 @@ function GoalCount() {
                 </button>
               </div>
               <div className="football-court-goal-selecting-container-sub-3">
-                <button className="football-court-goal-trigger-button">
+                <button
+                  className="football-court-goal-trigger-button"
+                  onClick={() => {
+                    setDataSaved(true);
+                    setTimeout(() => {
+                      dispatchUserEvent("HIDE SHOW GOAL COUNT");
+                    }, 800);
+                  }}
+                >
                   <GiTurban className="football-court-goal-trigger-button-icon" />
                 </button>
               </div>

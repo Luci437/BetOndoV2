@@ -1,20 +1,22 @@
 
 import React, {useState, useContext} from 'react';
 import { TimerContext } from '../../Context/TimerContext';
+import { useToast } from '../Toast/ToastProvider';
 
 const JoinButton = () => {
 
     const [joinLoading, setJoinLoading] = useState(false);
-    const {joined, dispatchTimerEvent} = useContext(TimerContext)   
-
+    const { joined, dispatchTimerEvent } = useContext(TimerContext);
+    const toast = useToast();
 
     const joinContest = () => {
         setJoinLoading(!joinLoading)
         dispatchTimerEvent("ADD JOINED", {
             value: !joined
         })
-        // setShowToast(true);
-        // setToastMessage(textConstants.JOINED_CONTEST);
+        // toast({
+        //     message: "JOINED"
+        // })
     }
 
     return (

@@ -32,7 +32,7 @@ const App = () => {
           <>
             <NavBar />
             <Route path="/betting" component={BettingComponent} />
-            <Route path="/" component={Home} exact />
+            <Route path="/home" component={Home} exact />
             <Route path="/settings" component={SettingsIndex} />
           </>
         ) : (

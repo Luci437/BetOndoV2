@@ -13,10 +13,11 @@ import { CommonContext } from "../../Context/CommonContext";
 const ProfileDetails = () => {
   const containerRef = useRef();
   const { dispatchTimerEvent } = useContext(TimerContext);
-  const { dispatchUserEvent } = useContext(CommonContext);
+  const { dispatchUserEvent, profile } = useContext(CommonContext);
   const [closeProfile, setCloseProfile] = useState(false);
   const today = new Date();
   const currentYear = today.getFullYear();
+  const [dp, setDp] = useState();
 
   useEffect(() => {
     // It's functionality is that when we click outside the profile box the profile box will be closed
@@ -65,6 +66,12 @@ const ProfileDetails = () => {
     //*Toast here [error]
   };
 
+  useEffect(() => {
+    if (profile !== null) {
+      setDp(profile?.imageUrl)
+    }
+  }, [profile]);
+
   return (
     <div
       className={
@@ -93,14 +100,21 @@ const ProfileDetails = () => {
         />
       </div>
       <div className="profileBox">
-        <img src={sachin} alt="" className="profileImage" />
-        <p className="userProfileName">Sachin Geo Jacob</p>
-        <p className="userProfileId">#104049826035271870096</p>
+        <img src={dp} alt={profile?.name} className="profileImage" />
+        <p className="userProfileName">{profile?.name}</p>
+        <p className="userProfileId">#{profile?.googleId}</p>
       </div>
       <div className="profileMenuBox">
-        <p className="profileMenuIcons">
+        <NavLink
+          className="profileMenuIcons"
+          activeClassName="profileMenuIconActive"
+          to={"/home"}
+          onClick={() => {
+            closeNavBar(200);
+          }}
+        >
           <RiHome4Line />
-        </p>
+        </NavLink>
         <p className="profileMenuIcons">
           <IoTrophyOutline />
         </p>

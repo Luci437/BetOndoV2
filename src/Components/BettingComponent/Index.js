@@ -10,6 +10,7 @@ import JoinButton from "./JoinButton";
 import MatchResult from "./MatchResult";
 import GoalCount2 from "./GoalCount2";
 import { CommonContext } from "../../Context/CommonContext";
+import GoalsSelected from "./GoalsSelected";
 
 function Index() {
   const { expired, dispatchTimerEvent, gameEnded, joined } =
@@ -47,6 +48,7 @@ function Index() {
       )}
       {gameEnded && <MatchResult />}
       {!expired && joined && <Voting />}
+      {<GoalsSelected  />}
       {gameEnded && <LeaderBoard />}
       <ParticipantsTable />
       {!gameEnded && !expired && !joined && <JoinButton />}

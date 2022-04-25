@@ -11,18 +11,26 @@ import { ImGoogle2 } from "react-icons/im";
 import { useContext } from "react";
 import { siteConstant } from "../../Constants/commonConstants";
 import { CommonContext } from "../../Context/CommonContext";
+import { useHistory} from 'react-router-dom'
+
 
 const Login = () => {
   const { dispatchUserEvent } = useContext(CommonContext);
+  const history = useHistory();
 
   // When Google signIn is success this function will be called
   const onLoginSuccess = (response) => {
-      console.log(response);
-      //*Toast here
-      dispatchUserEvent("ADD AUTH", {
-        value: true
-    })
-    localStorage.setItem("userId", response.googleId);
+    console.log(response);
+    //*Toast here
+    dispatchUserEvent("ADD AUTH", {
+      value: true,
+    });
+    dispatchUserEvent("ADD PROFILE", {
+      value: response?.profileObj
+    });
+    localStorage.setItem("profile", JSON.stringify(response?.profileObj));
+    localStorage.setItem("userId", response?.googleId);
+    history.push("/home")
   };
 
   // When Google signIn is failed this function will be called
