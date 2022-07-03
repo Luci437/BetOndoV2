@@ -20,7 +20,7 @@ function DateAndTimeTimer() {
     // this variable is used to store setInterval
     let timeInterval = setInterval;
     // this variable store the deadLine or betting ending time
-    const deadLine = 1649039780000;
+    const deadLine = 1659525780000;
     // this variable store current days time and date
     let today = new Date().getTime();
     // this variable store time difference between deadLine and today

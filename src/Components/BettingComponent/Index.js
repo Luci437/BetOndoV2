@@ -48,7 +48,7 @@ function Index() {
       )}
       {gameEnded && <MatchResult />}
       {!expired && joined && <Voting />}
-      {<GoalsSelected  />}
+      {!expired && joined && <GoalsSelected />}
       {gameEnded && <LeaderBoard />}
       <ParticipantsTable />
       {!gameEnded && !expired && !joined && <JoinButton />}

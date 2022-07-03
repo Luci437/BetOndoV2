@@ -12,6 +12,7 @@
   --blueColor: #0e8ae7;
   --disabledButton: #303235;
   --courtBorderColor: rgba(255, 255, 255, 0.774);
+  --bigFontSize: 1.5rem;
 }
 
 * {
@@ -555,6 +556,7 @@ body {
   display: flex;
   column-gap: 1em;
   transition: 0.3s ease;
+  width: 100%;
 }
 .participantsInfoBox > span {
   display: flex;
@@ -2181,4 +2183,29 @@ body {
   100% {
     opacity: 1;
   }
+}
+.predictedValue {
+  font-size: var(--bigFontSize);
+  font-weight: 800;
+  background: #262a2e;
+  padding: 0.25em;
+  border-radius: 0.25em;
+  font-family: "Exo";
+}
+.glowTopBorder {
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.121);
+  backdrop-filter: blur(10px);
+}
+.glowTopBorder::after {
+  position: absolute;
+  content: "";
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    to left,
+    transparent 30%,
+    rgba(4, 139, 236, 0.451)
+  );
+  transform: translateX(190%) skew(35deg) rotate(90deg);
 }

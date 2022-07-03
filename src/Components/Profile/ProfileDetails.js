@@ -84,7 +84,7 @@ const ProfileDetails = () => {
       <div className="profileNav">
         <p className="userProfileToken">123</p>
         <GoogleLogout
-          clientId={process.env.REACT_APP_GOOGLEID}
+          clientId="573874724070-1fjgnfrd1r6m0i9jinivcbtdtkqt67rl.apps.googleusercontent.com"
           render={(renderProps) => (
             <button
               className="logoutButton"
