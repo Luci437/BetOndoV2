@@ -117,6 +117,13 @@ body {
   column-gap: 0.5em;
   color: var(--midWhite);
 }
+.forms-title {
+  font-size: 0.8rem;
+  font-weight: bold;
+  width: 100%;
+  column-gap: 0.5em;
+  color: var(--midWhite);
+}
 .teamDetailBox {
   position: relative;
   display: grid;
@@ -2208,4 +2215,198 @@ body {
     rgba(4, 139, 236, 0.451)
   );
   transform: translateX(190%) skew(35deg) rotate(90deg);
+}
+.archon-main-container {
+  position: relative;
+  width: 100%;
+  padding: 1em;
+  background: #171b20;
+}
+.site-input-box {
+  position: relative;
+  width: 100%;
+}
+.site-input-box-input {
+  position: relative;
+  width: 100%;
+  padding: 1em 1.5em;
+  background: transparent;
+  border: 2px solid rgb(64, 64, 64);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border-radius: 0.5em;
+  text-transform:capitalize;
+  transition: 0.3s ease all;
+}
+.site-input-box-input-label {
+  position: absolute;
+  color: #5d606b;
+  left: 1em;
+  top: 1em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.3s ease all;
+}
+.site-input-box-input:focus + .site-input-box-input-label {
+  font-size: 0.8rem;
+  top: -0.6em;
+  background: #171b20;
+  padding: 0 0.4em;
+  color: #3b75fe;
+}
+.site-input-box-input:valid + .site-input-box-input-label {
+  top: -0.6em;
+  font-size: 0.8rem;
+  background: #171b20;
+  padding: 0 0.4em;
+  color: #5d606b;
+}
+.site-input-box-input:focus {
+  border: 2px solid #3b75fe;
+}
+.site-input-box-input:focus ~ .site-input-box-input-label {
+  color: #3b75fe;
+}
+.site-input-box-input-close-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1em;
+  color: #5d606b;
+  font-size: 1.4rem;
+  box-shadow: 0 0 10px 10px #171b20;
+  border-radius: 99vh;
+  background: #171b20;
+  opacity: 0;
+  transition: 0.3s 0.3s ease all;
+}
+.site-input-box-input:focus ~ .site-input-box-input-close-button {
+  opacity: 1;
+}
+.data-submission-form {
+  position: relative;
+}
+.team-creation-form-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 1em;
+  width: 100%;
+}
+.grid-components:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 4;
+}
+.grid-components:nth-child(2) {
+  grid-area: 1 / 4 / 2 / 6;
+}
+.file-uploading-section {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.5em;
+}
+.file-uploading-section-container {
+  position: relative;
+  width: 100%;
+  background: #101316;
+  border-radius: 0.5em;
+  padding: 1em;
+}
+.section-container-1 {
+  grid-area: 1 / 1 / 5 / 2;
+}
+.section-container-2 {
+  grid-area: 1 / 2 / 3 / 3;
+}
+.section-container-3 {
+  grid-area: 3 / 2 / 5 / 3;
+}
+.form-main-container {
+  position: relative;
+  width: 100%;
+}
+.file-uploading-section-sub-container {
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgb(64, 64, 64);
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.3s ease all;
+}
+.file-uploading-section-sub-container > span {
+  display: grid;
+  place-items: center;
+  gap: 1em;
+}
+.text-inside-upload {
+  text-align: center;
+  color: #686868;
+}
+.form-upload-icon {
+  font-size: 2rem;
+  color: rgb(79, 79, 79);
+}
+.form-uploaded-image {
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  object-fit: contain;
+  padding: 1em;
+}
+.horizontal-padding-large {
+  padding: 1em;
+}
+.horizontal-padding-medium {
+  padding: 0.5em;
+}
+.submission-area {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  gap: 0.5em;
+}
+.sub-button {
+  border: none;
+  padding: 1em;
+  text-transform: capitalize;
+  border-radius: 0.5em;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.sub-cancel-button {
+  grid-area: 1 / 1 / 2 / 2;
+  background: #31383f;
+  color: #686868;
+}
+.sub-continue-button {
+  grid-area: 1 / 2 / 2 / 6;
+  background: linear-gradient(#6291ff, #3b75fe);
+  color: #ffffff;
+}
+.sub-continue-button:active {
+  box-shadow: 0.2em 0.2em 0 0 rgba(35, 39, 69, 0.579) inset;
+  background: #2b57bf;
+  padding-bottom: 0.5em;
+}
+.form-main-title {
+  position: relative;
+  font-size: 2rem;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-family: 'Exo';
 }

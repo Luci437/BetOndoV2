@@ -9,6 +9,7 @@ import Login from "./Components/Login/Login";
 import Home from "./Components/HomeComponent/Index";
 import SettingsIndex from "./Components/Settings/SettingsIndex";
 import { CommonContext } from "./Context/CommonContext";
+import ArchonIndex from "./Components/Archon/ArchonIndex";
 
 const App = () => {
   const {auth} = useContext(CommonContext);
@@ -23,7 +24,14 @@ const App = () => {
 
   useEffect(() => {
     document.getElementById("loadingScreen").style.display = "none";
-  }, []);
+    if (window.location.pathname === "/") {
+      if (auth) {
+        window.location.href = "/home"
+      } else {
+        window.location.href = "/login"
+      }
+    }
+  }, [auth]);
 
   return (
     <div className="App">
@@ -32,11 +40,12 @@ const App = () => {
           <>
             <NavBar />
             <Route path="/betting" component={BettingComponent} />
-            <Route path="/home" component={Home} exact />
+            <Route path="/home" component={Home} />
             <Route path="/settings" component={SettingsIndex} />
+            <Route path="/archon" component={ArchonIndex} />
           </>
         ) : (
-          <Login />
+          <Route path="/login" component={Login} />
         )}
       </div>
       <p className="errorMessage">{textConstants.ONLY_MOBILE_VIEW}</p>

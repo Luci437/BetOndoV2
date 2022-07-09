@@ -4,13 +4,13 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { LastLocationProvider } from "react-router-last-location";
-import { HashRouter, Switch } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 import { TimerProvider } from "./Context/TimerContext";
 import { CommonProvider } from "./Context/CommonContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <Switch>
         <TimerProvider>
           <LastLocationProvider>
@@ -20,7 +20,7 @@ ReactDOM.render(
           </LastLocationProvider>
         </TimerProvider>
       </Switch>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
