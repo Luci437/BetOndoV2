@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import InputBox from "../../../Utils/Components/InputBox";
-import { AiFillFolderAdd } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
-import { FaPencilAlt } from "react-icons/fa";
 import { IoImage } from "react-icons/io5";
+import { BiFootball } from "react-icons/bi";
 
 function CreateTeam() {
   const [playerImage, setPlayerImage] = useState("");
@@ -13,7 +12,7 @@ function CreateTeam() {
   return (
     <div className="form-main-container">
       <h3 className="form-main-title">
-        <FaPencilAlt /> CREATE TEAM
+        <BiFootball /> CREATE TEAM
       </h3>
       <div className="horizontal-padding-large"></div>
       <div className="horizontal-padding-large"></div>

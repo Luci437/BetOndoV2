@@ -13,6 +13,7 @@ function ArchonDashboard() {
   return (
     <div>
       <NavLink to="/archon/create-team">Create Team</NavLink>
+      <NavLink to="/archon/create-match">Schedule Match</NavLink>
     </div>
   );
 }
