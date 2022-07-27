@@ -1,5 +1,6 @@
 :root {
   --backgroundColor2: #161a1f;
+  /* --backgroundColor2: #0B0505; */
   --iconSize: 1.5rem;
   --iconColor: rgba(255, 255, 255, 0.3);
   --midWhite: rgba(255, 255, 255, 0.75);
@@ -8,6 +9,7 @@
   --borderColorLightWhite: rgb(44, 44, 44);
   --teamBoxHeight: 150px;
   --bettingBackground: #23272b;
+  /* --bettingBackground: #0B0505; */
   --imageBackgroundColor: rgb(51, 51, 51);
   --blueColor: #0e8ae7;
   --disabledButton: #303235;
@@ -64,6 +66,7 @@ body {
   z-index: 999;
   background-color: var(--backgroundColor2);
   box-shadow: 0 10px 10px var(--backgroundColor2);
+  transition: 0.3s all ease;
 }
 .navBarChild {
   padding: 1em;
@@ -2221,6 +2224,7 @@ body {
   width: 100%;
   padding: 1em;
   background: #171b20;
+  padding-bottom: 4em;
 }
 .site-input-box {
   position: relative;
@@ -2574,4 +2578,247 @@ body {
 }
 .schedule-data-sub-containers:nth-child(5) {
   grid-area: 3 / 4 / 4 / 7;
+}
+.archon-main-slider-container {
+  position: relative;
+  width: 100%;
+  height: 20vh;
+  background: #22262d;
+  border-radius: 0.5em;
+  background-image: url("../Images/archon-db.jpeg");
+  overflow: hidden;
+  background-size: cover;
+}
+.archon-main-slider-container::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 101%;
+  left: 0;
+  top: 0;
+  border-radius: 0.5em;
+  background: linear-gradient(transparent, #0f10111e);
+  z-index: 2;
+}
+.archon-slider-timer-container {
+  position: absolute;
+  padding: 0.2em;
+  background: #171a1f93;
+  border-radius: 99vh;
+  left: 2.5%;
+  top: 3%;
+  z-index: 3;
+  font-size: 1.2rem;
+  color: rgb(206, 206, 206);
+  backdrop-filter: blur(2px);
+  display: flex;
+  gap: 1em;
+}
+.archon-slider-text-container {
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+  font-size: 1rem;
+  color: #fff;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.archon-slider-text-container > h3,
+h6 {
+  font-family: "Exo";
+  text-transform: uppercase;
+}
+.archon-slider-text-container > h6 {
+  opacity: 0.5;
+}
+.bottom-nav-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 5vh;
+  padding: 1em;
+  background: rgba(39, 38, 42, 0.868);
+  display: flex;
+  justify-content: space-between;
+  transition: 0.2s ease all;
+  backdrop-filter: blur(10px);
+  transition: 0.3s all ease;
+}
+.bottom-nav-nav {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex: 1 0 0;
+  transition: 0.2s ease all;
+}
+.bottom-nav-nav > button {
+  position: relative;
+  flex: 1 0 0;
+  background: transparent;
+  border: none;
+  color: #6c717f;
+  transition: 0.2s ease all;
+  font-family: "Exo";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+}
+.bottom-nav-icons {
+  font-size: 1.2rem;
+}
+.bottom-nav-button-icons-active p {
+  color: #fff;
+  font-weight: 600;
+}
+.bottom-nav-button-icons-active .bottom-nav-icons {
+  color: rgb(255, 255, 255);
+}
+.archon-main-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.archon-menu-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 0.5em;
+}
+.archon-menu-buttons {
+  position: relative;
+  padding: 0.85em;
+  flex: 1 0 0;
+  text-transform: uppercase;
+  background: linear-gradient(
+    160deg,
+    rgba(49, 49, 49, 0.845),
+    rgba(225, 196, 196, 0.158)
+  );
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.archon-menu-icon {
+  position: relative;
+  font-size: 1.2rem;
+}
+.archon-menu-buttons:nth-child(1) {
+  border-radius: 0.5em 0 0 0.5em;
+}
+.archon-menu-buttons:nth-child(2) {
+  border-radius: 0 0.5em 0.5em 0;
+}
+.archon-menu-buttons:nth-child(1)::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 80%;
+  background: #0e8ae7;
+  border-radius: 99vh;
+  right: -1%;
+  border-radius: 99vh;
+}
+.archon-menu-buttons:nth-child(2)::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 80%;
+  background: #0e8ae7;
+  border-radius: 99vh;
+  left: -1%;
+  border-radius: 99vh;
+}
+.archon-vs-container {
+  position: relative;
+  width: 100%;
+  height: 25vh;
+  border-radius: 0.5em;
+  overflow: hidden;
+  display: flex;
+  background: rgb(0, 0, 0);
+}
+.archon-vs-box {
+  flex: 1 0 0;
+  position: relative;
+}
+.archon-vs-flags {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+.archon-vs-info-container {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  padding: 1em;
+  border-radius: 99vh;
+  background-color: #131313;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='400' cy='400' r='58.7%25' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23131313'/%3E%3Cstop offset='1' stop-color='%23001F21'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='400' cy='400' r='80.7%25' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23131313'/%3E%3Cstop offset='1' stop-color='%23000404'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='800'/%3E%3Cg fill-opacity='0.6'%3E%3Cpath fill='url(%23b)' d='M998.7 439.2c1.7-26.5 1.7-52.7 0.1-78.5L401 399.9c0 0 0-0.1 0-0.1l587.6-116.9c-5.1-25.9-11.9-51.2-20.3-75.8L400.9 399.7c0 0 0-0.1 0-0.1l537.3-265c-11.6-23.5-24.8-46.2-39.3-67.9L400.8 399.5c0 0 0-0.1-0.1-0.1l450.4-395c-17.3-19.7-35.8-38.2-55.5-55.5l-395 450.4c0 0-0.1 0-0.1-0.1L733.4-99c-21.7-14.5-44.4-27.6-68-39.3l-265 537.4c0 0-0.1 0-0.1 0l192.6-567.4c-24.6-8.3-49.9-15.1-75.8-20.2L400.2 399c0 0-0.1 0-0.1 0l39.2-597.7c-26.5-1.7-52.7-1.7-78.5-0.1L399.9 399c0 0-0.1 0-0.1 0L282.9-188.6c-25.9 5.1-51.2 11.9-75.8 20.3l192.6 567.4c0 0-0.1 0-0.1 0l-265-537.3c-23.5 11.6-46.2 24.8-67.9 39.3l332.8 498.1c0 0-0.1 0-0.1 0.1L4.4-51.1C-15.3-33.9-33.8-15.3-51.1 4.4l450.4 395c0 0 0 0.1-0.1 0.1L-99 66.6c-14.5 21.7-27.6 44.4-39.3 68l537.4 265c0 0 0 0.1 0 0.1l-567.4-192.6c-8.3 24.6-15.1 49.9-20.2 75.8L399 399.8c0 0 0 0.1 0 0.1l-597.7-39.2c-1.7 26.5-1.7 52.7-0.1 78.5L399 400.1c0 0 0 0.1 0 0.1l-587.6 116.9c5.1 25.9 11.9 51.2 20.3 75.8l567.4-192.6c0 0 0 0.1 0 0.1l-537.3 265c11.6 23.5 24.8 46.2 39.3 67.9l498.1-332.8c0 0 0 0.1 0.1 0.1l-450.4 395c17.3 19.7 35.8 38.2 55.5 55.5l395-450.4c0 0 0.1 0 0.1 0.1L66.6 899c21.7 14.5 44.4 27.6 68 39.3l265-537.4c0 0 0.1 0 0.1 0L207.1 968.3c24.6 8.3 49.9 15.1 75.8 20.2L399.8 401c0 0 0.1 0 0.1 0l-39.2 597.7c26.5 1.7 52.7 1.7 78.5 0.1L400.1 401c0 0 0.1 0 0.1 0l116.9 587.6c25.9-5.1 51.2-11.9 75.8-20.3L400.3 400.9c0 0 0.1 0 0.1 0l265 537.3c23.5-11.6 46.2-24.8 67.9-39.3L400.5 400.8c0 0 0.1 0 0.1-0.1l395 450.4c19.7-17.3 38.2-35.8 55.5-55.5l-450.4-395c0 0 0-0.1 0.1-0.1L899 733.4c14.5-21.7 27.6-44.4 39.3-68l-537.4-265c0 0 0-0.1 0-0.1l567.4 192.6c8.3-24.6 15.1-49.9 20.2-75.8L401 400.2c0 0 0-0.1 0-0.1L998.7 439.2z'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.876);
+  border: 2px solid rgba(248, 248, 248, 0.075);
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  place-items: center;
+}
+.archon-vs-info-text {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+.archon-vs-info-text:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 3;
+}
+.archon-vs-info-text:nth-child(2) {
+  grid-area: 1 / 3 / 2 / 5;
+}
+.archon-vs-info-text:nth-child(3) {
+  grid-area: 1 / 5 / 2 / 6;
+}
+.archon-vs-info-text:nth-child(4) {
+  grid-area: 1 / 6 / 2 / 8;
+}
+.archon-vs-info-text:nth-child(5) {
+  grid-area: 1 / 8 / 2 / 10;
+}
+.promo-container {
+  position: relative;
+  width: 100%;
+  background: #050505;
+  display: flex;
+  height: 10vh;
+  align-items: center;
+  border-radius: 0.5em;
+  box-shadow: 5px 5px 10px rgb(13, 13, 13),-5px -5px 10px rgb(40, 40, 40);
+  border: 2px solid rgb(0, 0, 0);
+}
+.promo-image {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+}
+.promo-container h1 {
+  color: #FAFEFF;
+  text-shadow: 0 0 10px #41A7BF, 0 0 50px #41A7BF;
+  font-family: 'Exo';
+}
+.promo-container h6 {
+  color: #FAFEFF;
+  text-shadow: 0 0 10px #41A7BF, 0 0 50px #41A7BF;
+  font-family: 'Exo';
+  animation: randomVisible 3s ease-out infinite alternate-reverse;
 }
