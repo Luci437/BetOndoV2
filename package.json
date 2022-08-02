@@ -17,6 +17,7 @@
     "react-router-last-location": "^2.0.1",
     "react-scripts": "4.0.3",
     "redux": "^4.1.0",
+    "tesseract.js": "^2.1.1",
     "uuid": "^8.3.2",
     "uuidv4": "^6.2.13",
     "web-vitals": "^1.1.2"

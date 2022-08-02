@@ -14,16 +14,18 @@ function BottomNavigationArchon() {
   useEffect(() => {
     var previousScrollPosition = window.pageYOffset;
     window.onscroll = () => {
-      let currentScrollPosition = window.pageYOffset;
-      if (currentScrollPosition > previousScrollPosition) {
-        navRef.current.style.opacity = "0";
-        navRef.current.style.visibility = "hidden";
-      } else {
-        navRef.current.style.opacity = "1";
-        navRef.current.style.visibility = "visible";
+      if (navRef.current) {
+        let currentScrollPosition = window.pageYOffset;
+        if (currentScrollPosition > previousScrollPosition) {
+          navRef.current.style.opacity = "0";
+          navRef.current.style.visibility = "hidden";
+        } else {
+          navRef.current.style.opacity = "1";
+          navRef.current.style.visibility = "visible";
+        }
+        previousScrollPosition = currentScrollPosition;
       }
-      previousScrollPosition = currentScrollPosition;
-    };
+    }
   }, []);
 
   return (
@@ -59,13 +61,13 @@ function BottomNavigationArchon() {
         </button>
       </NavLink>
       <NavLink
-        to="/archon/live-matches"
+        to="/archon/live-match"
         activeClassName="bottom-nav-button-icons-active"
         className="bottom-nav-nav"
       >
         <button>
           <CgData className="bottom-nav-icons" />
-          <p>LIVE</p>
+          <p>Live</p>
         </button>
       </NavLink>
       <NavLink

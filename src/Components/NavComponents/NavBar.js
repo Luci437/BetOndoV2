@@ -14,11 +14,7 @@ const NavBar = () => {
 
   const goBack = (e) => {
     e.preventDefault();
-    if (lastLocation != null) {
-      history.push(lastLocation.pathname);
-    } else {
-      history.push("/home");
-    }
+    history.goBack();
   };
 
   return (
