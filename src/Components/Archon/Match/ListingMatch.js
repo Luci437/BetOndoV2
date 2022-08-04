@@ -1,9 +1,10 @@
-import React from 'react'
-import { GiAmericanFootballHelmet } from 'react-icons/gi';
-import { NavLink } from 'react-router-dom'
-import EachMatchList from './EachMatchList';
+import React, { useState } from "react";
+import { GiAmericanFootballHelmet } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
+import EachMatchList from "./EachMatchList";
 
 function ListingMatch() {
+  const [selectedContainer, setSelectedContainer] = useState(null);
   return (
     <div className="listing-main-container">
       <div className="listing-title-container">
@@ -18,12 +19,17 @@ function ListingMatch() {
       </div>
       <div className="row-padding-800"></div>
       <div className="all-match-list-container">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1].map(() => (
-          <EachMatchList />
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1].map((data, index) => (
+          <EachMatchList
+            position={index}
+            setSelectedContainer={setSelectedContainer}
+            selectedContainer={selectedContainer}
+          />
         ))}
       </div>
+
     </div>
   );
 }
 
-export default ListingMatch
+export default ListingMatch;

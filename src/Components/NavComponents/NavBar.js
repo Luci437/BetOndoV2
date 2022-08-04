@@ -8,7 +8,6 @@ import { TimerContext } from "../../Context/TimerContext";
 
 const NavBar = () => {
   const history = useHistory();
-  const lastLocation = useLastLocation();
 
   const { showNav, dispatchTimerEvent } = useContext(TimerContext);
 
@@ -21,7 +20,7 @@ const NavBar = () => {
     <div className="navBarContainer">
       <div className="navBarChild" onClick={goBack}>
         <IoIosArrowBack
-          className={!lastLocation ? "dimmedTextColor navIcons" : "navIcons"}
+          className={"navIcons"}
         />
       </div>
       <div className="navBarChild">
