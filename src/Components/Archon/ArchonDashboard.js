@@ -16,9 +16,9 @@ function ArchonDashboard() {
     <div className={"archon-main-container"}>
       <ArchonMainSlider />
       <div className="archon-menu-container">
-        <NavLink to="/archon/create-team" className="archon-menu-buttons">
+        <NavLink to="/archon/list-teams/create-team" className="archon-menu-buttons">
           <GiAmericanFootballPlayer className="archon-menu-icon" />
-          MAKE TEAM
+          CREATE TEAM
         </NavLink>
         <NavLink
           to="/archon/list-matches/create-match"

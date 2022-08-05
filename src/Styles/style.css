@@ -1487,6 +1487,39 @@ body {
 .football-court-goal-selecting-container-sub-3 {
   grid-column: 4/5;
 }
+.neume-button-live-feed-save {
+  position: relative;
+  background: linear-gradient(135deg, rgb(60, 153, 240), rgb(27, 115, 197));
+  box-shadow: 0 0 0 3px rgb(24, 24, 24), 2px 2px 5px rgb(95, 177, 254) inset,
+    -2px -2px 5px rgb(20, 78, 132) inset;
+  border-radius: 0.5em;
+  border: none;
+  transition: 0.3s ease;
+  display: flex;
+  padding: 0.5em 1em;
+  align-items: center;
+}
+.neume-live-text {
+  display: flex;
+  padding: 0.5em 1em;
+  gap: 0.5em;
+  align-items: center;
+  font-weight: 700;
+  color: #fff;
+  filter: drop-shadow(-5px -10px 5px rgb(116, 180, 240))
+    drop-shadow(5px 10px 5px rgba(29, 29, 29, 0.5));
+  transition: 0.3s ease;
+}
+.neume-button-live-feed-save:active {
+  background: linear-gradient(-135deg, rgb(60, 153, 240), rgb(27, 115, 197));
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.801),
+    -2px -2px 5px rgb(95, 177, 254) inset, 2px 2px 5px rgb(20, 78, 132) inset;
+}
+.neume-button-live-feed-save:active .neume-live-text {
+  filter: drop-shadow(5px 15px 5px rgb(116, 180, 240))
+    drop-shadow(-5px -10px 5px rgba(29, 29, 29, 0.5));
+  transform: scale(0.8);
+}
 .football-court-goal-trigger-button {
   position: relative;
   width: 100%;
@@ -2650,6 +2683,7 @@ h6 {
   width: 96%;
   min-height: 5vh;
   border-radius: 99vh;
+  z-index: 9999;
   padding: 1em;
   background: rgba(39, 38, 42, 0.868);
   border: 2px solid rgb(51, 51, 51);
@@ -2882,6 +2916,7 @@ h6 {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  min-height: 80vh;
   border-radius: 1em;
 }
 .each-match-list-container {
@@ -3276,34 +3311,92 @@ h6 {
   transform: translateX(-50%);
   padding: 0.3em 1em;
   font-size: 0.6rem;
-  background: #171B20;
+  background: #171b20;
   display: grid;
   place-items: center;
   font-weight: 600;
   color: #fff;
   border-radius: 0 0 1vh 1vh;
-  border: 1px solid #171B20;
+  border: 1px solid #171b20;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 .recent-live-event-time-container::before {
   position: absolute;
-  content: '';
+  content: "";
   width: 0.5em;
   height: 0.5em;
   background: transparent;
   top: 0;
   left: -0.6em;
   border-radius: 0 99vh 0 0;
-  box-shadow: 1px -0.2em 0 #171B20;
+  box-shadow: 1px -0.2em 0 #171b20;
 }
 .recent-live-event-time-container::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 0.5em;
   height: 0.5em;
   background: transparent;
   top: 0;
   right: -0.6em;
   border-radius: 99vh 0 0 0;
-  box-shadow: -1px -0.2em 0 #171B20;
+  box-shadow: -1px -0.2em 0 #171b20;
+}
+/* .live-feed-save-container {
+  position: sticky;
+  bottom: 5em;
+  left: 0;
+  background-color: #2e3a48;
+} */
+.listing-team-main-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  gap: 0.5em;
+}
+.listing-each-teams {
+  position: relative;
+  width: 100%;
+  padding: 0.5em;
+  background: #2b323b;
+  border-radius: 0.5em;
+  /* min-height: 30vh; */
+}
+.listing-round-image-container {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+  border-radius: 99vh;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgb(90, 90, 90);
+  box-shadow: -2px -2px 5px rgb(90, 90, 90), 2px 2px 5px rgb(20, 20, 20);
+}
+
+.listing-round-image {
+  width: 2em;
+}
+.listing-badge-image {
+  width: 6em;
+  position: absolute;
+  filter: grayscale(100%);
+  opacity: 0.1;
+  right: 0;
+}
+.listing-player-image {
+  position: relative;
+  width: 4em;
+}
+.listing-team-info-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: rgb(166, 166, 166);
+  font-size: 0.6rem;
+  margin-top: 1em;
+}
+.listing-team-info-container > strong > p {
+  color: #fff;
+  font-size: 0.8rem;
 }

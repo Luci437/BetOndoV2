@@ -41,7 +41,7 @@ function BottomNavigationArchon() {
         </button>
       </NavLink>
       <NavLink
-        to="/archon/create-team"
+        to="/archon/list-teams"
         activeClassName="bottom-nav-button-icons-active"
         className="bottom-nav-nav"
       >

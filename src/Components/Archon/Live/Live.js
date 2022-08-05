@@ -10,6 +10,7 @@ import { CgData } from "react-icons/cg";
 import GoalLiveCounter from "./GoalLiveCounter";
 import { BsViewList } from "react-icons/bs";
 import { AiOutlineControl } from "react-icons/ai";
+import { ImFeed } from "react-icons/im";
 
 function Live() {
   const { ref, inView } = useInView({ threshold: siteConstant.THRESHOLD });
@@ -92,7 +93,7 @@ function Live() {
         <GoalLiveCounter setFunction={setTeamBScore} />
       </div>
 
-      <div className="content-box-with-main-title">
+      <div className={"content-box-with-main-title"}>
         <h3 className="content-box-main-title">
           <BiToggleLeft /> MATCH DYNAMO
         </h3>
@@ -124,7 +125,10 @@ function Live() {
         </div>
       </div>
 
-      <div className="content-box-with-main-title">
+      <div
+        className={"content-box-with-main-title"
+        }
+      >
         <h3 className="content-box-main-title">
           <BiTrendingUp /> MATCH INFORMATION
         </h3>
@@ -155,7 +159,29 @@ function Live() {
           </div>
         </div>
       </div>
+
+      <div
+        className={"content-box-with-main-title"
+        }
+      >
+        <h3 className="content-box-main-title">
+          <BiTrendingUp /> UPDATE TO LIVE
+        </h3>
+        <div className="content-box-with-data">
+          <div className="content-sub-box-with-data">
+            <div>Update data to live feed.</div>
+            <div className="content-sub-main-data">
+              <button className="neume-button-live-feed-save">
+                <p className="neume-live-text">
+                  <ImFeed /> Update
+                </p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* <div className="row-padding-400"></div>
+      
       <div className="row-padding-800"></div> */}
       <h3 className="content-box-main-title">
         <CgData /> OTHER LIVE MATCHES
