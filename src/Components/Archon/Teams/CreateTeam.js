@@ -3,11 +3,13 @@ import InputBox from "../../../Utils/Components/InputBox";
 import { IoMdClose } from "react-icons/io";
 import { IoImage } from "react-icons/io5";
 import { BiFootball } from "react-icons/bi";
+import { useHistory } from "react-router-dom";
 
 function CreateTeam() {
   const [playerImage, setPlayerImage] = useState("");
   const [teamLogo, setTeamLogo] = useState("");
   const [teamBadge, setTeamBadge] = useState("");
+  const history = useHistory();
 
   return (
     <div className="form-main-container">
@@ -121,7 +123,10 @@ function CreateTeam() {
       </div>
       <div className="horizontal-padding-large"></div>
       <div className="submission-area">
-        <button className="sub-button sub-cancel-button">
+        <button
+          className="sub-button sub-cancel-button"
+          onClick={() => history.goBack()}
+        >
           <IoMdClose />
         </button>
         <button className="sub-button sub-continue-button">save info</button>

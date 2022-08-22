@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { GiTurban } from "react-icons/gi";
-import { IoIosFootball } from "react-icons/io";
 import { useInView } from "react-intersection-observer";
 import { siteConstant } from "../../../Constants/commonConstants";
 import flag1 from "../../../Images/flag1.jpeg";
@@ -8,9 +6,9 @@ import flag2 from "../../../Images/flag2.jpeg";
 import { BiTrendingUp, BiToggleLeft } from "react-icons/bi";
 import { CgData } from "react-icons/cg";
 import GoalLiveCounter from "./GoalLiveCounter";
-import { BsViewList } from "react-icons/bs";
 import { AiOutlineControl } from "react-icons/ai";
 import { ImFeed } from "react-icons/im";
+import RadCo from "../../../Utils/Components/RadCo";
 
 function Live() {
   const { ref, inView } = useInView({ threshold: siteConstant.THRESHOLD });
@@ -102,14 +100,10 @@ function Live() {
             <div>Match Status</div>
             <div className="content-sub-main-data">
               <div className="content-sub-box-check-container">
-                <button className="content-sub-box-check-button">
-                  Started
-                </button>
-                <button className="content-sub-box-check-button">Break</button>
-                <button className="content-sub-box-check-button">
-                  Extra Time
-                </button>
-                <button className="content-sub-box-check-button">Ended</button>
+                <RadCo
+                  list={["STARTED", "HALF T.", "EXTRA T.", "MATCH OVER"]}
+                  userSelectedItem={"STARTED"}
+                />
               </div>
             </div>
           </div>
@@ -117,18 +111,14 @@ function Live() {
             <div>Match Abandoned</div>
             <div className="content-sub-main-data">
               <div className="content-sub-box-check-container">
-                <button className="content-sub-box-check-button">Yes</button>
-                <button className="content-sub-box-check-button">No</button>
+                <RadCo list={["YES", "NO"]} userSelectedItem={"NO"} />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        className={"content-box-with-main-title"
-        }
-      >
+      <div className={"content-box-with-main-title"}>
         <h3 className="content-box-main-title">
           <BiTrendingUp /> MATCH INFORMATION
         </h3>
@@ -157,13 +147,14 @@ function Live() {
             <div>DeadLine</div>
             <div className="content-sub-main-data">12, March 2022</div>
           </div>
+          <div className="content-sub-box-with-data">
+            <div>Commentator</div>
+            <div className="content-sub-main-data">Aby Thomas</div>
+          </div>
         </div>
       </div>
 
-      <div
-        className={"content-box-with-main-title"
-        }
-      >
+      <div className={"content-box-with-main-title"}>
         <h3 className="content-box-main-title">
           <BiTrendingUp /> UPDATE TO LIVE
         </h3>

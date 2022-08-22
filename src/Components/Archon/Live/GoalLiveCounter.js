@@ -6,7 +6,6 @@ function GoalLiveCounter(props) {
   const [currentCount, setCurrentCount] = useState(0);
 
   useEffect(() => {
-    console.log("---");
     setFunction(currentCount)
   }, [currentCount])
 

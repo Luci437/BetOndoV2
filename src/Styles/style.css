@@ -3114,6 +3114,10 @@ h6 {
   align-items: center;
   gap: 0.5em;
 }
+.content-box-main-title > span {
+  font-weight: 400;
+  color: rgb(169, 169, 169);
+}
 .content-box-with-data {
   position: relative;
   width: 100%;
@@ -3144,6 +3148,7 @@ h6 {
   align-items: center;
   font-weight: 700;
   overflow: hidden;
+  transition: background ease 0.2s;
 }
 .live-counter-buttons {
   border: none;
@@ -3184,7 +3189,7 @@ h6 {
 }
 .recent-live-event-container {
   position: relative;
-  background: rgb(40, 40, 40);
+  background: linear-gradient(rgb(49, 49, 49), rgb(40, 40, 40) 20%);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 99vh;
   display: grid;
@@ -3278,10 +3283,11 @@ h6 {
   color: rgba(255, 255, 255, 0.362);
   background: rgba(52, 52, 52, 0.411);
   text-transform: uppercase;
+  transition: all ease 0.2s;
 }
-.content-sub-box-check-button:hover {
-  background: #0e8ae7;
-  color: #fff;
+.content-sub-box-check-button-selected {
+  background: #ccfc52;
+  color: rgb(44, 44, 44);
 }
 .content-sub-box-check-button:last-child {
   border-radius: 0 99vh 99vh 0;
@@ -3381,7 +3387,7 @@ h6 {
   width: 6em;
   position: absolute;
   filter: grayscale(100%);
-  opacity: 0.1;
+  opacity: 0.08;
   right: 0;
 }
 .listing-player-image {

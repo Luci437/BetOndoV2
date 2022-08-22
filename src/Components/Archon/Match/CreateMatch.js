@@ -4,10 +4,12 @@ import DropDown from "../../../Utils/Components/DropDown";
 import InputBox from "../../../Utils/Components/InputBox";
 import { SiEpicgames } from "react-icons/si";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function CreateMatch() {
 
   const [matchList] = useState(["Fifa World Cup 2022", "UEFA Champions 2022"]);
+  const history = useHistory();
 
   return (
     <div className="form-main-container">
@@ -52,7 +54,7 @@ function CreateMatch() {
       </div>
       <div className="horizontal-padding-large"></div>
       <div className="submission-area">
-        <button className="sub-button sub-cancel-button">
+        <button className="sub-button sub-cancel-button" onClick={()=> history.goBack()}>
           <IoMdClose />
         </button>
         <button className="sub-button sub-continue-button">save info</button>

@@ -51,16 +51,6 @@ function BottomNavigationArchon() {
         </button>
       </NavLink>
       <NavLink
-        to="/archon/list-matches"
-        activeClassName="bottom-nav-button-icons-active"
-        className="bottom-nav-nav"
-      >
-        <button>
-          <GiAmericanFootballHelmet className="bottom-nav-icons" />
-          <p>Match</p>
-        </button>
-      </NavLink>
-      <NavLink
         to="/archon/live-match"
         activeClassName="bottom-nav-button-icons-active"
         className="bottom-nav-nav"
@@ -70,6 +60,17 @@ function BottomNavigationArchon() {
           <p>Live</p>
         </button>
       </NavLink>
+      <NavLink
+        to="/archon/list-matches"
+        activeClassName="bottom-nav-button-icons-active"
+        className="bottom-nav-nav"
+      >
+        <button>
+          <GiAmericanFootballHelmet className="bottom-nav-icons" />
+          <p>Match</p>
+        </button>
+      </NavLink>
+
       <NavLink
         to="/archon/config"
         activeClassName="bottom-nav-button-icons-active"
